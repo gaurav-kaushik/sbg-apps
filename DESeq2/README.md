@@ -20,5 +20,5 @@ To package this tool into a Docker container for testing and/or deployment, you 
 Or you can pull the container using:
 `docker pull gauravkaushik/rnaseq:workshop`
 
-###Import into the CGC
+###Import into the Seven Bridges platform
 You can import **`diff.cwl.json`** into the Seven Bridges platform to use for your own research or try wrapping this application yourself using the Tool Editor!
