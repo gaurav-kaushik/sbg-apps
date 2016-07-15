@@ -1,8 +1,10 @@
 {
-  "id": "https://cgc-api.sbgenomics.com/gauravCGC/tutorials/Transcribe/0/raw/",
   "class": "CommandLineTool",
   "label": "Transcribe",
   "description": "This project was created to demonstrate the use of argparse to create CLI tools in Python, wrap them using CWL/SDK.v2, and running them.\n\nThis tool takes a TXT file with a DNA sequence and converts to an RNA sequence.",
+  "id": "",
+  "successCodes": [],
+  "temporaryFailCodes": [],
   "requirements": [
     {
       "class": "CreateFileRequirement",
@@ -24,6 +26,21 @@
       ]
     }
   ],
+  "hints": [
+    {
+      "class": "sbg:CPURequirement",
+      "value": 1
+    },
+    {
+      "class": "sbg:MemRequirement",
+      "value": 1000
+    },
+    {
+      "class": "DockerRequirement",
+      "dockerImageId": "",
+      "dockerPull": "rfranklin/pythondev:latest"
+    }
+  ],  
   "inputs": [
     {
       "description": "Input file",
@@ -71,33 +88,12 @@
       ]
     }
   ],
-  "hints": [
-    {
-      "class": "sbg:CPURequirement",
-      "value": 1
-    },
-    {
-      "class": "sbg:MemRequirement",
-      "value": 1000
-    },
-    {
-      "class": "DockerRequirement",
-      "dockerImageId": "",
-      "dockerPull": "rfranklin/pythondev"
-    }
-  ],
-  "baseCommand": [
-    "python",
-    "transcribe_argparse.py"
-  ],
   "stdin": "",
   "stdout": {
     "class": "Expression",
     "script": "($job.inputs.output_filename || 'rna') + '.txt'",
     "engine": "#cwl-js-engine"
   },
-  "successCodes": [],
-  "temporaryFailCodes": [],
-  "arguments": [],
-  "baseCmd": [""]
+  "baseCommand": ["python", "transcribe_argparse.py"],
+  "arguments": []
 }

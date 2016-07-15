@@ -1,26 +1,10 @@
 {
+  "class": "Workflow",
   "label": "dna2protein",
-  "inputs": [
-    {
-      "type": [
-        "null",
-        "string"
-      ],
-      "id": "#output_filename",
-      "description": "Optional output_filename string"
-    },
-    {
-      "label": "input_file",
-      "sbg:y": 157,
-      "id": "#input_file",
-      "sbg:x": 102,
-      "type": [
-        "File"
-      ]
-    }
-  ],
-  "requirements": [],
   "description": "A workflow that converts DNA sequences into peptides.",
+  "id": "",
+  "requirements": [],
+  "hints": [],
   "steps": [
     {
       "inputs": [
@@ -485,7 +469,25 @@
       }
     }
   ],
-  "class": "Workflow",
+  "inputs": [
+    {
+      "type": [
+        "null",
+        "string"
+      ],
+      "id": "#output_filename",
+      "description": "Optional output_filename string"
+    },
+    {
+      "label": "input_file",
+      "sbg:y": 157,
+      "id": "#input_file",
+      "sbg:x": 102,
+      "type": [
+        "File"
+      ]
+    }
+  ],
   "outputs": [
     {
       "label": "output_protein",
@@ -501,8 +503,6 @@
       "sbg:includeInPorts": true
     }
   ],
-  "hints": [],
   "sbg:canvas_x": 187,
-  "id": "https://cgc-api.sbgenomics.com/v2/apps/gauravCGC/cgc-sdk-webinar-may-17/dna2protein/0/raw/",
   "sbg:canvas_y": 71
 }
