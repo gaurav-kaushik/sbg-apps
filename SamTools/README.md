@@ -6,7 +6,7 @@ This repository contains:
 2. A CWL description of how to use SamTools Sort to sort an unsorted BAM file
 
 ####To run in the command line:
-	samtools sort <unsorted.bam> <sorted.bam>
+	samtools sort <sorted.bam> <unsorted.bam> 
 
 ####Build your own container
 To package this tool into a Docker container for testing and/or deployment, you can use the following command:
