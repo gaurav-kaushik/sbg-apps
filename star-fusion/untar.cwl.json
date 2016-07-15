@@ -1,0 +1,57 @@
+
+{
+  "class": "CommandLineTool",
+  "label": "star-untar",
+  "id": "",
+  "description": "untar star-index file",
+  "successCodes": [],
+  "temporaryFailCodes": [],
+  "hints": [
+    {
+      "value": 1,
+      "class": "sbg:CPURequirement"
+    },
+    {
+      "value": 1000,
+      "class": "sbg:MemRequirement"
+    },
+    {
+      "dockerPull": "ubuntu:latest",
+      "dockerImageId": "",
+      "class": "DockerRequirement"
+    }
+  ],
+  "requirements": [],
+  "inputs": [
+    {
+      "type": [
+        "File"
+      ],
+      "id": "#index",
+      "inputBinding": {
+        "sbg:cmdInclude": true,
+        "separate": false,
+        "position": 1
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "type": [
+        {
+          "type": "array",
+          "items": "File",
+          "name": "output"
+        }
+      ],
+      "outputBinding": {
+        "glob": "star_index/*"
+      },
+      "id": "#output"
+    }
+  ],
+  "stdin": "",
+  "stdout": "",
+  "baseCommand": ["tar","xvzf"],
+  "arguments": []
+}
