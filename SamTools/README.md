@@ -1,6 +1,7 @@
 #SamTools Sort
 
 This repository contains:
+
 1. A Dockerfile you can use to create a container with SamTools 1.2
 2. A CWL description of how to use SamTools Sort to sort an unsorted BAM file
 
