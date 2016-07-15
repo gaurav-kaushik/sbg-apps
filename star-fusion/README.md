@@ -7,4 +7,6 @@ This repository contains two tools:
 1. STAR-untar
 2. STAR-Fusion
 
-STAR-Fusion takes an untar'd index file
+STAR-Fusion identifies fusion transcripts from RNA-Seq data. It takes an untar'd index file and a junction file (from STAR):
+
+	STAR-Fusion --genome_lib_dir </path/to/genome/dir> -J <chimeric.junction> --output_dir <dir> --CPU <5>
