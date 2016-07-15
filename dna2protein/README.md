@@ -16,7 +16,7 @@ OR
 
 ###Run using the Rabix Executor
 
-Seven Bridges has developed a local executor for CWL. You can find it [here](github.com/rabix/bunny).
+Seven Bridges has developed a local executor for CWL. You can find it [here](http://github.com/rabix/bunny).
 
 To run this workflow with Rabix:
 
