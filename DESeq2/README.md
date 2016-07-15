@@ -4,7 +4,7 @@
 
 **To run in the command line:** 
 
-	Rscript diff.R brca_gene.csv brca_meta.csv csv_filename pdf_filename <rld | vsd>
+	Rscript diff.R data/brca_gene.csv data/brca_meta.csv csv_filename pdf_filename <rld | vsd>
 
 - `brca_gene.csv` is a matrix of genes vs samples
 - `brca_meta.csv` is a matrix of samples vs metadata (e.g. sample_type, gender)
