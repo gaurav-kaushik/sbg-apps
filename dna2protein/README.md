@@ -13,8 +13,14 @@ OR
 
 `python scripts/transcribe.py -d data/input.txt | python scripts/translate.py > data/protein.txt`
 
-To run locally with rabix, pull this folder into your local rabix directory, then enter:
 
-`./rabix dna2protein.cwl.json input.json`
+###Run using the Rabix Executor
 
-All CWL apps in this example were written using the Seven Bridges platform.
+Seven Bridges has developed a local executor for CWL. You can find it [here](github.com/rabix/bunny).
+
+To run this workflow with Rabix:
+
+	./rabix dna2protein.cwl.json input.json
+
+Note: You may have the Rabix Executor installed in another directory. Make sure the path to the executor and JSONs are correct.
+
