@@ -15,6 +15,6 @@ OR
 
 To run locally with rabix, pull this folder into your local rabix directory, then enter:
 
-`./rabix.sh -a dna2protein.cwl.json -i input_transcribe.json`
+`./rabix dna2protein.cwl.json input.json`
 
 All CWL apps in this example were written using the Seven Bridges platform.
