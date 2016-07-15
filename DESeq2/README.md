@@ -2,6 +2,12 @@
  
 `diff.R` is a script for performing a differential expression analysis using the DESeq2 library in R.
 
+This repository demonstrates:
+
+1. How to build a container where you install custom R packages/libraries
+2. How to make an R script that is command-line runnable
+3. A CWL description for how to run the script inside the container (the description refers to an already-built container on the cloud)
+
 **To run in the command line:** 
 
 	Rscript diff.R data/brca_gene.csv data/brca_meta.csv csv_filename pdf_filename <rld | vsd>
@@ -22,3 +28,13 @@ Or you can pull the container using:
 
 ###Import into the Seven Bridges platform
 You can import **`diff.cwl.json`** into the Seven Bridges platform to use for your own research or try wrapping this application yourself using the Tool Editor!
+
+###Run using the Rabix Executor
+
+Seven Bridges has developed a local executor for CWL. You can find it [here](github.com/rabix/bunny).
+
+To run this tool with Rabix:
+
+	./rabix diff.cwl.json input.json
+
+Note: You may have the Rabix Executor installed in another directory. Make sure the path to the executor and JSONs are correct.
