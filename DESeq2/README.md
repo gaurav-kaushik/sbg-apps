@@ -31,7 +31,7 @@ You can import **`diff.cwl.json`** into the Seven Bridges platform to use for yo
 
 ###Run using the Rabix Executor
 
-Seven Bridges has developed a local executor for CWL. You can find it [here](github.com/rabix/bunny).
+Seven Bridges has developed a local executor for CWL. You can find it [here](http://www.github.com/rabix/bunny).
 
 To run this tool with Rabix:
 
