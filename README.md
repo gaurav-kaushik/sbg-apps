@@ -6,3 +6,4 @@ Demo CWL tools and workflows for SBG platforms
 3. DESeq2 [R]
 4. star-fusion [cmd]
 5. sonnet-grep [cmd]
+6. GeneExpressionMunger [python]
