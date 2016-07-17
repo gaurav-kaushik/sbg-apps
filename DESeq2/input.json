@@ -1,0 +1,7 @@
+{
+    "gene": {"class":"File", "path":"data/brca_gene.csv"},
+    "metadata": {"class":"File", "path":"data/brca_meta.csv"},
+    "csv_filename": "output",
+    "pdf_filename": "output",
+    "nmeth": "vsd"
+}

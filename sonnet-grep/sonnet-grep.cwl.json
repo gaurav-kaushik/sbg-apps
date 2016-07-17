@@ -1,0 +1,100 @@
+{
+  "class": "CommandLineTool",
+  "label": "sonnet-grep",
+  "description": "Search for a line in Shakespeare's most famous sonnet.",
+  "id": "",
+  "successCodes": [],
+  "temporaryFailCodes": [],
+  "requirements": [
+    {
+      "requirements": [
+        {
+          "dockerPull": "rabix/js-engine",
+          "class": "DockerRequirement"
+        }
+      ],
+      "class": "ExpressionEngineRequirement",
+      "id": "#cwl-js-engine"
+    }
+  ],
+  "hints": [
+    {
+      "value": 1,
+      "class": "sbg:CPURequirement"
+    },
+    {
+      "value": 1000,
+      "class": "sbg:MemRequirement"
+    },
+    {
+      "dockerPull": "ubuntu:latest",
+      "class": "DockerRequirement",
+      "dockerImageId": ""
+    },
+    {
+      "value": "m1.small",
+      "class": "sbg:AWSInstanceType"
+    }
+  ],
+  "inputs": [
+    {
+      "label": "Pattern",
+      "inputBinding": {
+        "position": 1,
+        "separate": false,
+        "valueFrom": {
+          "script": "\"'\" + $job.inputs.pattern + \"'\" ",
+          "class": "Expression",
+          "engine": "#cwl-js-engine"
+        },
+        "sbg:cmdInclude": true
+      },
+      "description": "Input a pattern that you want to use to search for lines in the text file",
+      "type": [
+        "string"
+      ],
+      "id": "#pattern"
+    },
+    {
+      "description": "Input file from which to find a pattern",
+      "type": [
+        "null",
+        "File"
+      ],
+      "label": "Input File",
+      "inputBinding": {
+        "position": 2,
+        "separate": false,
+        "sbg:cmdInclude": true
+      },
+      "sbg:fileTypes": "TXT",
+      "id": "#file"
+    }
+  ],
+  "outputs": [
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "id": "#output_file",
+      "outputBinding": {
+        "glob": "output.txt"
+      }
+    },
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "id": "#sonnet",
+      "outputBinding": {
+        "glob": "sonnet.txt"
+      }
+    }
+  ],
+  "stdin": "",
+  "stdout": "output.txt",
+  "baseCommand": ["grep"],
+  "arguments": []
+}

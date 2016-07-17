@@ -1,0 +1,73 @@
+{
+  "class": "CommandLineTool",
+  "description": "samtools sort with version 1.2",
+  "label": "Samtools Sort 1.2",
+  "id": "",
+  "requirements": [],
+  "successCodes": [0],
+  "temporaryFailCodes": [],
+  "hints": [
+    {
+      "value": 4000,
+      "class": "sbg:MemRequirement"
+    },
+    {
+      "dockerImageId": "",
+      "class": "DockerRequirement",
+      "dockerPull": "gauravkaushik/samtools:1.2"
+    },
+    {
+      "value": 2,
+      "class": "sbg:CPURequirement"
+    }
+  ],
+  "inputs": [
+    {
+      "sbg:fileTypes": "BAM",
+      "id": "#BAM",
+      "label": "Bam files input",
+      "inputBinding": {
+        "separate": false,
+        "sbg:cmdInclude": true,
+        "position": 4
+      },
+      "type": ["File"]
+    }
+  ],
+  "outputs": [
+    {
+      "description": "sorted bam",
+      "label": "sorted_bam",
+      "fileTypes": "BAM",
+      "id": "#sorted",
+      "type": ["File"],
+      "outputBinding": {
+        "glob": "*.bam"
+      }
+    }
+  ],
+  "baseCommand": [
+    "samtools",
+    "sort"
+  ],
+  "arguments": [
+    {
+      "prefix": "-O",
+      "separate": true,
+      "position": 1,
+      "valueFrom": "bam"
+    },
+    {
+      "prefix": "-T",
+      "separate": true,
+      "position": 2,
+      "valueFrom": "Tmp"
+    },
+    {
+      "prefix": "-o",
+      "separate": true,
+      "position": 3,
+      "valueFrom": "sorted.bam"
+    }
+  ]
+}

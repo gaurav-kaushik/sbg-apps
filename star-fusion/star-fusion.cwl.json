@@ -1,0 +1,116 @@
+{
+  "class": "CommandLineTool",
+  "id": "",
+  "label": "STAR-fusion",
+  "description": "STAR Fusion Detection",
+  "successCodes": [],
+  "temporaryFailCodes": [],
+  "requirements": [
+    {
+      "id": "#cwl-js-engine",
+      "class": "ExpressionEngineRequirement",
+      "requirements": [
+        {
+          "class": "DockerRequirement",
+          "dockerPull": "rabix/js-engine"
+        }
+      ]
+    }
+  ],
+  "hints": [
+    {
+      "class": "sbg:CPURequirement",
+      "value": 1
+    },
+    {
+      "class": "sbg:MemRequirement",
+      "value": 1000
+    },
+    {
+      "class": "DockerRequirement",
+      "dockerPull": "dreamchallenge/star:latest",
+      "dockerImageId": ""
+    }
+  ],
+  "inputs": [
+    {
+      "id": "#index",
+      "type": [
+        {
+          "name": "index",
+          "type": "array",
+          "items": "File"
+        }
+      ],
+      "sbg:stageInput": null
+    },
+    {
+      "id": "#J",
+      "type": [
+        "File"
+      ],
+      "inputBinding": {
+        "prefix": "-J",
+        "sbg:cmdInclude": true,
+        "separate": true,
+        "position": 1
+      }
+    },
+    {
+      "id": "#output_dir",
+      "type": [
+        "string"
+      ],
+      "inputBinding": {
+        "prefix": "--output_dir",
+        "sbg:cmdInclude": true,
+        "separate": true,
+        "position": 2
+      }
+    },
+    {
+      "id": "#threads",
+      "type": [
+        "null",
+        "int"
+      ],
+      "inputBinding": {
+        "prefix": "--CPU",
+        "sbg:cmdInclude": true,
+        "separate": true,
+        "position": 2
+      },
+      "sbg:stageInput": null
+    }
+  ],
+  "outputs": [
+    {
+      "id": "#output",
+      "type": [
+        "File"
+      ],
+      "outputBinding": {
+        "glob": {
+          "class": "Expression",
+          "script": "$job.inputs.output_dir + '/star-fusion.fusion_candidates.final.abridged'",
+          "engine": "#cwl-js-engine"
+        }
+      }
+    }
+  ],
+  "stdin": "",
+  "stdout": "",
+  "baseCommand": ["STAR-Fusion"],
+  "arguments": [
+    {
+      "prefix": "--genome_lib_dir",
+      "valueFrom": {
+        "class": "Expression",
+        "script": "$job.inputs.index[0].path.split(\"/\").slice(0,-1).join(\"/\")",
+        "engine": "#cwl-js-engine"
+      },
+      "separate": true,
+      "position": 0
+    }
+  ]
+}
