@@ -4,7 +4,6 @@ Dockerfiles that illustrate how to use existing base images and install new pack
 - Python2: Installing new packages in the continuumio/anaconda container (Python)
 - R: Installing new packages in a rocker/r-base container (R)
 - Bioconductor: Installing new Bioconductor packages from the base image (R)
-- SamTools: Installing SamTools in an ubuntu container
 
 If you have a request for examples on how to build different kinds of Bioconductor packages, please submit them using a GitHub issue. 
 
