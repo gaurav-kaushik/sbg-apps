@@ -1,9 +1,9 @@
-# sbg-apps
-Demo CWL tools and workflows for SBG platforms
+# Example Seven Bridges Applications
+CWL tools and workflows for SBG platforms
 
-1. SamTools Sort [cmd]
-2. dna2protein [python]
+1. SamTools Sort [Linux binary]
+2. dna2protein [Python]
 3. DESeq2 [R]
-4. star-fusion [cmd]
-5. sonnet-grep [cmd]
-6. GeneExpressionMunger [python]
+4. star-fusion [Linux binary]
+5. sonnet-grep [Linux binary]
+6. Gene Expression Munger [Python]
