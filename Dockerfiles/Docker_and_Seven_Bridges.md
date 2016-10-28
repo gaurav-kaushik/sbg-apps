@@ -1,6 +1,6 @@
 #Using Docker on Seven Bridges
 
-You can turn any command line tool packaged in a Docker container into an application on the [Seven Bridges platform](http://docs.sevenbridges.com/docs/sdk-overview) or the [Seven Bridges Cancer Genomics Cloud](http://docs.cancergenomicscloud.org/docs/sdk-overview). From a Docker perspective, all you need is a container on a online registry, the most common of which is [DockerHub](http://hub.docker.com). However, there is also the Seven Bridges and Cancer Genomics Cloud registries, which are optimized for use with each platform.
+You can turn any command line tool packaged in a Docker container into an application on the [Seven Bridges platform](http://docs.sevenbridges.com/docs/sdk-overview) or the [Seven Bridges Cancer Genomics Cloud](http://docs.cancergenomicscloud.org/docs/sdk-overview). To use a Docker container for an application within Seven Bridges, you need to have or find that container in a online registry, the most common of which is [DockerHub](http://hub.docker.com). However, there is also the Seven Bridges and Cancer Genomics Cloud registries, which are optimized for use with each platform.
 
 Here, we'll describe how to associate a Docker image with a Seven Bridges registry and push it. 
 
