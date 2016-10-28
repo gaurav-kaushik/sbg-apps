@@ -1,0 +1,163 @@
+{
+  "outputs": [
+    {
+      "description": "sorted bam",
+      "fileTypes": "BAM",
+      "type": [
+        "File"
+      ],
+      "outputBinding": {
+        "glob": "*.bam"
+      },
+      "label": "sorted_bam",
+      "id": "#sorted"
+    }
+  ],
+  "successCodes": [
+    0
+  ],
+  "sbg:contributors": [
+    "gauravCGC"
+  ],
+  "hints": [
+    {
+      "class": "sbg:MemRequirement",
+      "value": 4000
+    },
+    {
+      "class": "DockerRequirement",
+      "dockerPull": "gauravkaushik/samtools:1.2",
+      "dockerImageId": ""
+    },
+    {
+      "class": "sbg:CPURequirement",
+      "value": 2
+    }
+  ],
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/gauravCGC/devtools/samtools-sort-iterative/3/raw/",
+  "sbg:cmdPreview": "samtools sort -O bam -T Tmp -o testsample_sorted.bam /path/to/file.bam",
+  "baseCommand": [
+    "samtools",
+    "sort"
+  ],
+  "sbg:createdBy": "gauravCGC",
+  "sbg:revisionNotes": "Prefix or Sample ID",
+  "sbg:revision": 3,
+  "arguments": [
+    {
+      "separate": true,
+      "prefix": "-O",
+      "position": 1,
+      "valueFrom": "bam"
+    },
+    {
+      "separate": true,
+      "prefix": "-T",
+      "position": 2,
+      "valueFrom": "Tmp"
+    },
+    {
+      "separate": true,
+      "prefix": "-o",
+      "position": 3,
+      "valueFrom": {
+        "class": "Expression",
+        "engine": "#cwl-js-engine",
+        "script": "($job.inputs.prefix || $job.inputs.BAM.metadata.sample_id) + '_sorted.bam'"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "label": "Bam files input",
+      "id": "#BAM",
+      "inputBinding": {
+        "separate": false,
+        "position": 4,
+        "sbg:cmdInclude": true
+      },
+      "type": [
+        "File"
+      ],
+      "sbg:fileTypes": "BAM"
+    },
+    {
+      "description": "Prefix to add to output filename",
+      "label": "Output File Prefix",
+      "type": [
+        "null",
+        "string"
+      ],
+      "id": "#prefix"
+    }
+  ],
+  "sbg:modifiedOn": 1477688646,
+  "requirements": [
+    {
+      "class": "ExpressionEngineRequirement",
+      "requirements": [
+        {
+          "class": "DockerRequirement",
+          "dockerPull": "rabix/js-engine"
+        }
+      ],
+      "id": "#cwl-js-engine"
+    }
+  ],
+  "sbg:id": "gauravCGC/devtools/samtools-sort-iterative/3",
+  "sbg:createdOn": 1477686351,
+  "class": "CommandLineTool",
+  "sbg:sbgMaintained": false,
+  "sbg:project": "gauravCGC/devtools",
+  "sbg:latestRevision": 3,
+  "temporaryFailCodes": [],
+  "description": "samtools sort with version 1.2",
+  "sbg:modifiedBy": "gauravCGC",
+  "sbg:job": {
+    "allocatedResources": {
+      "cpu": 2,
+      "mem": 4000
+    },
+    "inputs": {
+      "BAM": {
+        "path": "/path/to/file.bam",
+        "class": "File",
+        "metadata": {
+          "sample_id": "testsample"
+        },
+        "secondaryFiles": [],
+        "size": 0
+      },
+      "prefix": ""
+    }
+  },
+  "sbg:validationErrors": [],
+  "sbg:image_url": null,
+  "label": "Samtools Sort 1.2",
+  "sbg:revisionsInfo": [
+    {
+      "sbg:modifiedOn": 1477686351,
+      "sbg:revisionNotes": null,
+      "sbg:revision": 0,
+      "sbg:modifiedBy": "gauravCGC"
+    },
+    {
+      "sbg:modifiedOn": 1477688360,
+      "sbg:revisionNotes": "Import from https://github.com/gaurav-kaushik/sbg-apps/blob/master/SamTools/samtools_1_2.cwl.json",
+      "sbg:revision": 1,
+      "sbg:modifiedBy": "gauravCGC"
+    },
+    {
+      "sbg:modifiedOn": 1477688458,
+      "sbg:revisionNotes": "Add prefix to output BAM file",
+      "sbg:revision": 2,
+      "sbg:modifiedBy": "gauravCGC"
+    },
+    {
+      "sbg:modifiedOn": 1477688646,
+      "sbg:revisionNotes": "Prefix or Sample ID",
+      "sbg:revision": 3,
+      "sbg:modifiedBy": "gauravCGC"
+    }
+  ]
+}
