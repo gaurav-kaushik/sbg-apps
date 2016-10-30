@@ -1,0 +1,260 @@
+ss": "Workflow",
+  "steps": [
+    {
+      "id": "#Samtools_Sort_1_2",
+      "run": {
+        "outputs": [
+          {
+            "description": "sorted bam",
+            "fileTypes": "BAM",
+            "type": [
+              "File"
+            ],
+            "label": "sorted_bam",
+            "id": "#sorted",
+            "outputBinding": {
+              "glob": "*.bam"
+            }
+          }
+        ],
+        "successCodes": [
+          0
+        ],
+        "requirements": [
+          {
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+              {
+                "class": "DockerRequirement",
+                "dockerPull": "rabix/js-engine"
+              }
+            ]
+          }
+        ],
+        "hints": [
+          {
+            "class": "sbg:MemRequirement",
+            "value": 4000
+          },
+          {
+            "class": "DockerRequirement",
+            "dockerPull": "gauravkaushik/samtools:1.2",
+            "dockerImageId": ""
+          },
+          {
+            "class": "sbg:CPURequirement",
+            "value": 2
+          }
+        ],
+        "id": "gauravCGC/devtools/samtools-sort-iterative/3",
+        "sbg:contributors": [
+          "gauravCGC"
+        ],
+        "baseCommand": [
+          "samtools",
+          "sort"
+        ],
+        "sbg:createdBy": "gauravCGC",
+        "sbg:revisionNotes": "Prefix or Sample ID",
+        "sbg:revision": 3,
+        "arguments": [
+          {
+            "separate": true,
+            "prefix": "-O",
+            "position": 1,
+            "valueFrom": "bam"
+          },
+          {
+            "separate": true,
+            "prefix": "-T",
+            "position": 2,
+            "valueFrom": "Tmp"
+          },
+          {
+            "separate": true,
+            "prefix": "-o",
+            "position": 3,
+            "valueFrom": {
+              "class": "Expression",
+              "engine": "#cwl-js-engine",
+              "script": "($job.inputs.prefix || $job.inputs.BAM.metadata.sample_id) + '_sorted.bam'"
+            }
+          }
+        ],
+        "inputs": [
+          {
+            "description": "Prefix to add to output filename",
+            "label": "Output File Prefix",
+            "type": [
+              "null",
+              "string"
+            ],
+            "id": "#prefix"
+          },
+          {
+            "sbg:fileTypes": "BAM",
+            "label": "Bam files input",
+            "inputBinding": {
+              "separate": false,
+              "position": 4,
+              "sbg:cmdInclude": true
+            },
+            "type": [
+              "File"
+            ],
+            "id": "#BAM",
+            "required": true
+          }
+        ],
+        "sbg:modifiedOn": 1477688646,
+        "sbg:cmdPreview": "samtools sort -O bam -T Tmp -o testsample_sorted.bam /path/to/file.bam",
+        "sbg:id": "gauravCGC/devtools/samtools-sort-iterative/3",
+        "sbg:createdOn": 1477686351,
+        "class": "CommandLineTool",
+        "sbg:sbgMaintained": false,
+        "sbg:project": "gauravCGC/devtools",
+        "sbg:latestRevision": 3,
+        "temporaryFailCodes": [],
+        "sbg:job": {
+          "allocatedResources": {
+            "cpu": 2,
+            "mem": 4000
+          },
+          "inputs": {
+            "BAM": {
+              "path": "/path/to/file.bam",
+              "class": "File",
+              "metadata": {
+                "sample_id": "testsample"
+              },
+              "secondaryFiles": [],
+              "size": 0
+            },
+            "prefix": ""
+          }
+        },
+        "sbg:modifiedBy": "gauravCGC",
+        "description": "samtools sort with version 1.2",
+        "sbg:validationErrors": [],
+        "sbg:image_url": null,
+        "label": "Samtools Sort 1.2",
+        "sbg:revisionsInfo": [
+          {
+            "sbg:modifiedOn": 1477686351,
+            "sbg:revisionNotes": null,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "gauravCGC"
+          },
+          {
+            "sbg:modifiedOn": 1477688360,
+            "sbg:revisionNotes": "Import from https://github.com/gaurav-kaushik/sbg-apps/blob/master/SamTools/samtools_1_2.cwl.json",
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "gauravCGC"
+          },
+          {
+            "sbg:modifiedOn": 1477688458,
+            "sbg:revisionNotes": "Add prefix to output BAM file",
+            "sbg:revision": 2,
+            "sbg:modifiedBy": "gauravCGC"
+          },
+          {
+            "sbg:modifiedOn": 1477688646,
+            "sbg:revisionNotes": "Prefix or Sample ID",
+            "sbg:revision": 3,
+            "sbg:modifiedBy": "gauravCGC"
+          }
+        ],
+        "x": 512.3334209521639,
+        "y": 201.34898126187497
+      },
+      "inputs": [
+        {
+          "id": "#Samtools_Sort_1_2.prefix"
+        },
+        {
+          "id": "#Samtools_Sort_1_2.BAM",
+          "source": [
+            "#BAM"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "id": "#Samtools_Sort_1_2.sorted"
+        }
+      ],
+      "sbg:x": 512.3334209521639,
+      "sbg:y": 201.34898126187497
+    }
+  ],
+  "requirements": [],
+  "inputs": [
+    {
+      "sbg:y": 166.6666684680514,
+      "type": [
+        "File"
+      ],
+      "sbg:x": 251.66666413677999,
+      "label": "BAM",
+      "id": "#BAM",
+      "sbg:fileTypes": "BAM"
+    }
+  ],
+  "outputs": [
+    {
+      "sbg:y": 151.6666638056435,
+      "sbg:includeInPorts": true,
+      "type": [
+        "File"
+      ],
+      "sbg:x": 770.0000191264679,
+      "label": "sorted",
+      "id": "#sorted",
+      "required": true,
+      "source": [
+        "#Samtools_Sort_1_2.sorted"
+      ]
+    }
+  ],
+  "sbg:batchInput": "#BAM",
+  "sbg:createdBy": "gauravCGC",
+  "sbg:revisionNotes": "Batch-able SamTools Sort 1.2.",
+  "sbg:revision": 1,
+  "sbg:modifiedOn": 1477862599,
+  "sbg:contributors": [
+    "gauravCGC"
+  ],
+  "sbg:id": "gauravCGC/devtools/samtools-sort-batch/1",
+  "sbg:createdOn": 1477862233,
+  "sbg:sbgMaintained": false,
+  "sbg:project": "gauravCGC/devtools",
+  "sbg:latestRevision": 1,
+  "sbg:modifiedBy": "gauravCGC",
+  "sbg:validationErrors": [],
+  "sbg:canvas_x": 0,
+  "sbg:revisionsInfo": [
+    {
+      "sbg:modifiedOn": 1477862233,
+      "sbg:revisionNotes": null,
+      "sbg:revision": 0,
+      "sbg:modifiedBy": "gauravCGC"
+    },
+    {
+      "sbg:modifiedOn": 1477862599,
+      "sbg:revisionNotes": "Batch-able SamTools Sort 1.2.",
+      "sbg:revision": 1,
+      "sbg:modifiedBy": "gauravCGC"
+    }
+  ],
+  "sbg:canvas_zoom": 0.5999999999999996,
+  "sbg:batchBy": {
+    "type": "item"
+  },
+  "sbg:canvas_y": 0,
+  "sbg:image_url": null,
+  "id": "gauravCGC/devtools/samtools-sort-batch/1",
+  "label": "SamTools-Sort-Batch",
+  "description": "",
+  "hints": []
+}
